@@ -28,6 +28,14 @@ export const heroLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/tej-praval-pula", icon: Linkedin },
 ];
 
+export const heroSpotlight = {
+  label: "Featured Channel",
+  title: "MetaSynapse AI",
+  copy: "Watch projects, AI experiments, and technical builds on YouTube.",
+  href: "https://www.youtube.com/@MetaSynapseAiTej",
+  cta: "Visit YouTube Channel",
+};
+
 export const heroRoles = ["Full Stack Developer", "AI & ML Engineer", "Backend Systems Builder"];
 
 export const heroProof = [
@@ -93,11 +101,11 @@ export const skillGroups = [
   },
   {
     title: "Database",
-    items: ["MongoDB", "MySQL"],
+    items: ["MongoDB", "MySQL", "PostgreSQL"],
   },
   {
     title: "Tools",
-    items: ["Git", "Postman", "MongoDB Compass", "Figma"],
+    items: ["Git", "Postman", "MongoDB Compass", "Figma", "Docker"],
   },
   {
     title: "Concepts",

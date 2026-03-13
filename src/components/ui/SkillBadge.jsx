@@ -1,8 +1,63 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import {
+  Atom,
+  Binary,
+  Blocks,
+  BrainCircuit,
+  Braces,
+  Cable,
+  CodeXml,
+  Compass,
+  Database,
+  Container,
+  FileCode2,
+  Figma,
+  GitBranch,
+  Globe,
+  KeyRound,
+  LayoutTemplate,
+  Lock,
+  PenTool,
+  Send,
+  ShieldCheck,
+  ShieldEllipsis,
+  Wind,
+} from "lucide-react";
+
+const skillIconMap = {
+  "C++": Binary,
+  TypeScript: FileCode2,
+  JavaScript: Braces,
+  Python: CodeXml,
+  C: Binary,
+  "React.js": Atom,
+  HTML5: CodeXml,
+  CSS3: PenTool,
+  Bootstrap: LayoutTemplate,
+  Tailwind: Wind,
+  "Node.js": Cable,
+  "Express.js": Blocks,
+  "REST APIs": Globe,
+  "JWT Auth": KeyRound,
+  Middleware: ShieldEllipsis,
+  MongoDB: Database,
+  MySQL: Database,
+  PostgreSQL: Database,
+  Git: GitBranch,
+  Postman: Send,
+  "MongoDB Compass": Compass,
+  Figma: Figma,
+  Docker: Container,
+  RBAC: ShieldCheck,
+  "API Security": Lock,
+  "Policy Versioning": FileCode2,
+  DSA: BrainCircuit,
+};
 
 export function SkillBadge({ children, index = 0 }) {
   const glowRef = useRef(null);
+  const Icon = skillIconMap[children] ?? Braces;
 
   const handleMove = (event) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -31,7 +86,10 @@ export function SkillBadge({ children, index = 0 }) {
         <span className="skill-badge-spark left-[72%] top-[24%]" />
         <span className="skill-badge-spark left-[64%] top-[68%]" />
       </span>
-      <span className="relative bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+      <span className="relative inline-flex items-center gap-2 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+        <span className="inline-flex h-4 w-4 items-center justify-center text-brandSoft/90">
+          <Icon className="h-3.5 w-3.5" />
+        </span>
         {children}
       </span>
     </motion.div>

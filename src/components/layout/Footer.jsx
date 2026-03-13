@@ -1,8 +1,9 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Youtube } from "lucide-react";
 
 const links = [
   { label: "GitHub", href: "https://github.com/Tejpraval", icon: Github },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/tej-praval-pula", icon: Linkedin },
+  { label: "YouTube", href: "https://www.youtube.com/@MetaSynapseAiTej", icon: Youtube },
   { label: "Email", href: "mailto:tejpraval32@gmail.com", icon: Mail },
 ];
 

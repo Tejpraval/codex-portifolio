@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
-import { heroLinks, heroRoles } from "../../data/portfolio";
+import { ArrowDown, ArrowUpRight, Youtube } from "lucide-react";
+import { heroLinks, heroRoles, heroSpotlight } from "../../data/portfolio";
 import { useGlobalMouse } from "../../hooks/useGlobalMouse";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { useTypewriter } from "../../hooks/useTypewriter";
@@ -123,6 +123,35 @@ export function HeroSection() {
                 </Button>
               ))}
             </div>
+
+            <a
+              href={heroSpotlight.href}
+              target="_blank"
+              rel="noreferrer"
+              data-interactive="true"
+              className="hero-reveal hero-depth-a group mt-6 block max-w-xl overflow-hidden rounded-[26px] border border-[#ff7a18]/30 bg-[linear-gradient(135deg,rgba(255,122,24,0.22),rgba(255,255,255,0.06))] p-5 shadow-[0_20px_80px_rgba(255,122,24,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ffb173]/60"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-2xl border border-white/15 bg-white/10 p-3 text-[#ffb173]">
+                    <Youtube className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.28em] text-[#ffd6b8]">
+                      {heroSpotlight.label}
+                    </p>
+                    <h3 className="mt-2 text-xl font-semibold text-white">{heroSpotlight.title}</h3>
+                    <p className="mt-2 max-w-md text-sm leading-7 text-slate-200">
+                      {heroSpotlight.copy}
+                    </p>
+                    <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white">
+                      <span>{heroSpotlight.cta}</span>
+                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
 
           <motion.div
@@ -162,7 +191,7 @@ export function HeroSection() {
 
       <a
         href="#about"
-        className="scroll-pill absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
+        className="scroll-pill absolute bottom-8 left-[64%] z-10 flex -translate-x-1/2 items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white lg:left-[72%]"
         data-interactive="true"
       >
         Scroll to explore <ArrowDown className="h-4 w-4 animate-bounce" />

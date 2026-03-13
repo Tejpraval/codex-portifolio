@@ -111,6 +111,7 @@ function TechOrb() {
   const ringRef = useRef();
   const { mouse } = useGlobalMouse();
   const reducedMotion = useReducedMotion();
+  const basePosition = useMemo(() => new THREE.Vector3(1.2, 0.25, 0), []);
 
   useFrame((state, delta) => {
     if (!ref.current) return;
@@ -119,20 +120,40 @@ function TechOrb() {
     ref.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.45) * 0.12;
     if (!reducedMotion) {
       ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, normalizedY * 0.8, 0.05);
-      ref.current.position.x = THREE.MathUtils.lerp(ref.current.position.x, 2.1 + normalizedX * 0.55, 0.04);
-      ref.current.position.y = THREE.MathUtils.lerp(ref.current.position.y, 0.4 + normalizedY * -0.35, 0.04);
+      ref.current.position.x = THREE.MathUtils.lerp(
+        ref.current.position.x,
+        basePosition.x + normalizedX * 0.28,
+        0.04,
+      );
+      ref.current.position.y = THREE.MathUtils.lerp(
+        ref.current.position.y,
+        basePosition.y + normalizedY * -0.22,
+        0.04,
+      );
     }
     if (ringRef.current) {
       ringRef.current.rotation.y -= delta * (0.12 + velocity * 0.1);
       ringRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.2) * 0.3;
+      if (!reducedMotion) {
+        ringRef.current.position.x = THREE.MathUtils.lerp(
+          ringRef.current.position.x,
+          basePosition.x + normalizedX * 0.28,
+          0.04,
+        );
+        ringRef.current.position.y = THREE.MathUtils.lerp(
+          ringRef.current.position.y,
+          basePosition.y + normalizedY * -0.22,
+          0.04,
+        );
+      }
     }
   });
 
   return (
     <Float speed={2} rotationIntensity={0.8} floatIntensity={1.1}>
       <group>
-        <mesh ref={ref} position={[2.1, 0.4, 0]}>
-          <icosahedronGeometry args={[1.15, 1]} />
+        <mesh ref={ref} position={[1.2, 0.25, 0]}>
+          <icosahedronGeometry args={[1.02, 1]} />
           <meshStandardMaterial
             color="#11151d"
             emissive="#ff7a18"
@@ -142,9 +163,9 @@ function TechOrb() {
             wireframe
           />
         </mesh>
-        <mesh ref={ringRef} position={[2.1, 0.4, 0]}>
-          <torusGeometry args={[1.65, 0.03, 12, 60]} />
-          <meshBasicMaterial color="#ffd3af" transparent opacity={0.36} />
+        <mesh ref={ringRef} position={[1.2, 0.25, 0]}>
+          <torusGeometry args={[1.48, 0.03, 12, 60]} />
+          <meshBasicMaterial color="#ffd3af" transparent opacity={0.42} />
         </mesh>
       </group>
     </Float>
