@@ -12,19 +12,23 @@ export function MouseProvider({ children }) {
   });
 
   useEffect(() => {
+    const POSITION_SMOOTHING = 0.08;
+    const VELOCITY_SMOOTHING = 0.1;
+    const MOTION_SCALE = 0.72;
+    const MAX_VELOCITY = 0.9;
+
     const isTouchDevice =
       window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0;
 
     const update = () => {
-      const smoothing = 0.12;
-
-      current.current.x += (target.current.x - current.current.x) * smoothing;
-      current.current.y += (target.current.y - current.current.y) * smoothing;
+      current.current.x += (target.current.x - current.current.x) * POSITION_SMOOTHING;
+      current.current.y += (target.current.y - current.current.y) * POSITION_SMOOTHING;
       current.current.normalizedX +=
-        (target.current.normalizedX - current.current.normalizedX) * smoothing;
+        (target.current.normalizedX - current.current.normalizedX) * POSITION_SMOOTHING;
       current.current.normalizedY +=
-        (target.current.normalizedY - current.current.normalizedY) * smoothing;
-      current.current.velocity += (target.current.velocity - current.current.velocity) * 0.16;
+        (target.current.normalizedY - current.current.normalizedY) * POSITION_SMOOTHING;
+      current.current.velocity +=
+        (target.current.velocity - current.current.velocity) * VELOCITY_SMOOTHING;
       document.documentElement.style.setProperty("--mx", `${current.current.normalizedX}`);
       document.documentElement.style.setProperty("--my", `${current.current.normalizedY}`);
       document.documentElement.style.setProperty("--mv", `${current.current.velocity}`);
@@ -33,8 +37,8 @@ export function MouseProvider({ children }) {
     };
 
     const handleMove = (event) => {
-      const normalizedX = event.clientX / window.innerWidth - 0.5;
-      const normalizedY = event.clientY / window.innerHeight - 0.5;
+      const normalizedX = (event.clientX / window.innerWidth - 0.5) * MOTION_SCALE;
+      const normalizedY = (event.clientY / window.innerHeight - 0.5) * MOTION_SCALE;
       const velocity = Math.hypot(event.movementX ?? 0, event.movementY ?? 0);
 
       target.current = {
@@ -42,7 +46,7 @@ export function MouseProvider({ children }) {
         y: event.clientY,
         normalizedX,
         normalizedY,
-        velocity: Math.min(velocity / 60, 1.4),
+        velocity: Math.min(velocity / 95, MAX_VELOCITY),
       };
 
       setState((prev) =>

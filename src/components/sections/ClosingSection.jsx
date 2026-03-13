@@ -10,11 +10,10 @@ export function ClosingSection() {
           <div>
             <p className="chip">Closing Note</p>
             <h2 className="section-title mt-5 max-w-3xl">
-              Built to signal taste, clarity, and technical depth before the first conversation.
+              A summary of work across projects, skills, experience, and contact details.
             </h2>
             <p className="section-copy mt-5 max-w-2xl">
-              The goal is simple: show enough product thinking, engineering range, and execution quality that
-              recruiters, startups, and teams can immediately see the upside of a deeper conversation.
+              The portfolio brings together project context, technical work, and background information in one place.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button href="#contact" variant="primary">

@@ -120,8 +120,8 @@ export function SkillsSection() {
         <div className="skills-heading-reveal relative z-10">
           <SectionHeader
             eyebrow="Skills"
-            title="A modern stack across product interfaces, APIs, data, and systems design."
-            copy="Each tool is presented with the same emphasis: capability matters, but execution quality matters more."
+            title="Tools and technologies used across interfaces, APIs, data, and system design."
+            copy="The stack is grouped by how it is used in product development and engineering work."
           />
           <div className="skills-title-glow" />
           <div className="skills-title-underline mt-[-1rem] mb-10 h-px w-full max-w-sm bg-gradient-to-r from-brand via-[#ffd4b5] to-transparent" />

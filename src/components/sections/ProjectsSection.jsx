@@ -36,8 +36,8 @@ export function ProjectsSection() {
     <section id="projects" ref={sectionRef} className="section-shell py-24 md:py-32">
       <SectionHeader
         eyebrow="Projects"
-        title="Selected builds with stronger product framing, technical depth, and execution clarity."
-        copy="Instead of just listing stacks, these projects explain the problem, the role, the impact, and the technical decisions that mattered."
+        title="Selected projects across product interfaces, backend systems, and applied AI."
+        copy="Each project outlines the problem, the role, the outcome, and the key technical decisions involved."
       />
 
       <div className="mb-8 grid gap-5 lg:grid-cols-2">

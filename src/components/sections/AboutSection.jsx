@@ -85,8 +85,8 @@ export function AboutSection() {
     <section id="about" ref={sectionRef} className="section-shell py-24 md:py-32">
       <SectionHeader
         eyebrow="About"
-        title="Engineering software that feels both intelligent and refined."
-        copy="Computer Science (AI & ML) student at Lovely Professional University focused on building scalable backend systems, intelligent AI applications, and modern web platforms."
+        title="Computer Science student focused on backend systems, AI applications, and web products."
+        copy="Currently studying AI and ML at Lovely Professional University and building projects across full-stack development and applied AI."
       />
 
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">

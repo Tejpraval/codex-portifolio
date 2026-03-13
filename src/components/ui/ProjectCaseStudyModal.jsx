@@ -1,23 +1,103 @@
+import { useEffect, useMemo, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, CheckCircle2, Github, X } from "lucide-react";
+import { gsap } from "../../lib/gsap";
+import { ProjectCaseStudyBackdropScene } from "../three/ProjectCaseStudyBackdropScene";
 import { Button } from "./Button";
 
 export function ProjectCaseStudyModal({ project, open, onClose }) {
+  const overlayRef = useRef(null);
+  const modalRef = useRef(null);
+  const auraRef = useRef(null);
+  const pointerRef = useRef({
+    normalizedX: 0,
+    normalizedY: 0,
+    velocity: 0,
+  });
+
+  const accentColor = useMemo(() => {
+    if (!project?.accent) return "#ff7a18";
+    const match = project.accent.match(/#(?:[0-9a-fA-F]{3}){1,2}/);
+    return match?.[0] ?? "#ff7a18";
+  }, [project?.accent]);
+
+  useEffect(() => {
+    if (!open || !overlayRef.current || !modalRef.current) return undefined;
+
+    const modalX = gsap.quickTo(modalRef.current, "x", { duration: 0.45, ease: "power3.out" });
+    const modalY = gsap.quickTo(modalRef.current, "y", { duration: 0.45, ease: "power3.out" });
+    const modalRotateX = gsap.quickTo(modalRef.current, "rotationX", { duration: 0.45, ease: "power3.out" });
+    const modalRotateY = gsap.quickTo(modalRef.current, "rotationY", { duration: 0.45, ease: "power3.out" });
+    const auraX = auraRef.current
+      ? gsap.quickTo(auraRef.current, "x", { duration: 0.35, ease: "power2.out" })
+      : null;
+    const auraY = auraRef.current
+      ? gsap.quickTo(auraRef.current, "y", { duration: 0.35, ease: "power2.out" })
+      : null;
+
+    const handleMove = (event) => {
+      const rect = overlayRef.current.getBoundingClientRect();
+      const localX = event.clientX - rect.left;
+      const localY = event.clientY - rect.top;
+      const normalizedX = localX / rect.width - 0.5;
+      const normalizedY = localY / rect.height - 0.5;
+      const previous = pointerRef.current;
+      const velocity = Math.min(
+        Math.hypot(normalizedX - previous.normalizedX, normalizedY - previous.normalizedY) * 16,
+        1.8,
+      );
+
+      pointerRef.current = { normalizedX, normalizedY, velocity };
+      modalX(normalizedX * 18);
+      modalY(normalizedY * 14);
+      modalRotateX(normalizedY * -3.5);
+      modalRotateY(normalizedX * 4.5);
+      auraX(localX - rect.width / 2);
+      auraY(localY - rect.height / 2);
+    };
+
+    const handleLeave = () => {
+      pointerRef.current = { normalizedX: 0, normalizedY: 0, velocity: 0 };
+      modalX(0);
+      modalY(0);
+      modalRotateX(0);
+      modalRotateY(0);
+    };
+
+    const overlay = overlayRef.current;
+    overlay.addEventListener("pointermove", handleMove);
+    overlay.addEventListener("pointerleave", handleLeave);
+
+    return () => {
+      overlay.removeEventListener("pointermove", handleMove);
+      overlay.removeEventListener("pointerleave", handleLeave);
+    };
+  }, [open]);
+
   return (
     <AnimatePresence>
       {open && project ? (
         <motion.div
+          ref={overlayRef}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[95] flex items-center justify-center bg-black/75 p-4 backdrop-blur-xl"
+          className="fixed inset-0 z-[95] flex items-center justify-center overflow-hidden bg-black/80 p-4 backdrop-blur-xl md:p-6"
         >
+          <ProjectCaseStudyBackdropScene pointerRef={pointerRef} accent={accentColor} />
+          <div
+            ref={auraRef}
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.2),transparent_62%)] opacity-80 blur-[90px]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,122,24,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.08),transparent_24%)]" />
           <motion.div
+            ref={modalRef}
             initial={{ opacity: 0, y: 24, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
-            className="glass-panel relative flex max-h-[88vh] w-full max-w-6xl flex-col overflow-hidden rounded-[34px]"
+            style={{ transformPerspective: 1600 }}
+            className="glass-panel relative z-10 flex max-h-[92vh] w-full max-w-[min(92rem,96vw)] flex-col overflow-hidden rounded-[34px] border border-white/10"
           >
             <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${project.accent}`} />
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">

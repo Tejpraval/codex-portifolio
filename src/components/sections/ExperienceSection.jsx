@@ -50,8 +50,8 @@ export function ExperienceSection() {
     <section id="experience" className="section-shell py-24 md:py-32">
       <SectionHeader
         eyebrow="Experience"
-        title="Hands-on exposure across applied AI experimentation and frontend delivery."
-        copy="A compact timeline of internships that shaped both technical breadth and execution discipline."
+        title="Internship experience across applied AI and frontend development."
+        copy="A timeline of roles, responsibilities, and project work completed during internships."
       />
 
       <div ref={timelineRef} className="relative mx-auto max-w-4xl">

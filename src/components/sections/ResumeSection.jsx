@@ -131,7 +131,7 @@ export function ResumeSection() {
           <SectionHeader
             eyebrow="Resume"
             title="Download Resume"
-            copy="A polished, recruiter-ready CV presented as an interactive artifact rather than a plain file link."
+            copy="View or download a PDF resume covering experience, projects, and technical skills."
           />
         </div>
 
@@ -163,7 +163,7 @@ export function ResumeSection() {
                       Tej Praval Resume
                     </h3>
                     <p className="mt-2 text-sm leading-7 text-slate-300">
-                      Premium PDF CV with full-stack, AI/ML, and product engineering experience.
+                      PDF resume with experience, projects, and technical skills.
                     </p>
                     <div className="mt-4 flex flex-wrap gap-3">
                       <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs uppercase tracking-[0.24em] text-slate-300">

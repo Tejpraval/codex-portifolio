@@ -349,7 +349,7 @@ export const recruiterSignals = [
 ];
 
 export const closingPillars = [
-  "Open to internships, product roles, and serious startup opportunities",
-  "Comfortable contributing across UI polish, backend architecture, and AI-driven features",
-  "Best fit for teams that value execution quality, curiosity, and thoughtful systems design",
+  "Open to internships, product roles, and project-based opportunities",
+  "Experience across frontend development, backend architecture, and AI-related features",
+  "Interested in teams working on thoughtful products and reliable systems",
 ];

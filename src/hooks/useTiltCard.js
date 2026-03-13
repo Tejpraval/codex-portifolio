@@ -37,15 +37,16 @@ export function useTiltCard({ maxRotate = 8, depth = 14 } = {}) {
       : null;
 
     const handleMove = (event) => {
+      const tiltScale = 0.72;
       const bounds = node.getBoundingClientRect();
       const px = (event.clientX - bounds.left) / bounds.width;
       const py = (event.clientY - bounds.top) / bounds.height;
-      const rotateY = (px - 0.5) * maxRotate * 2;
-      const rotateX = (0.5 - py) * maxRotate * 2;
+      const rotateY = (px - 0.5) * maxRotate * 2 * tiltScale;
+      const rotateX = (0.5 - py) * maxRotate * 2 * tiltScale;
 
       rotateToX(rotateX);
       rotateToY(rotateY);
-      depthTo(depth);
+      depthTo(depth * 0.7);
 
       if (glareRef.current) {
         glareRef.current.style.background = `radial-gradient(circle at ${px * 100}% ${py * 100}%, rgba(255,122,24,0.28), transparent 42%)`;
