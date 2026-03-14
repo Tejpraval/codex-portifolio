@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 import { useTiltCard } from "../../hooks/useTiltCard";
 import { Button } from "./Button";
 
-export function ProjectCard({ project, index, onOpenCaseStudy }) {
+export function ProjectCard({ project, index }) {
   const { ref, glareRef } = useTiltCard({ maxRotate: 4.2, depth: 10 });
 
   return (
@@ -60,7 +60,7 @@ export function ProjectCard({ project, index, onOpenCaseStudy }) {
             <Button href={project.github} icon={Github}>
               GitHub
             </Button>
-            <Button onClick={() => onOpenCaseStudy(project)} variant="secondary" icon={ArrowRight}>
+            <Button href={`#/projects/${project.slug}`} variant="secondary" icon={ArrowRight}>
               Case Study
             </Button>
             {project.demo ? (
@@ -68,7 +68,7 @@ export function ProjectCard({ project, index, onOpenCaseStudy }) {
                 Live Demo
               </Button>
             ) : project.status ? (
-              <Button onClick={() => onOpenCaseStudy(project)} variant="secondary">
+              <Button href={`#/projects/${project.slug}`} variant="secondary">
                 Demo coming soon
               </Button>
             ) : null}

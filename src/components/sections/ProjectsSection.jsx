@@ -1,13 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { featuredProjects, projects } from "../../data/portfolio";
 import { gsap } from "../../lib/gsap";
-import { ProjectCaseStudyModal } from "../ui/ProjectCaseStudyModal";
 import { SectionHeader } from "../ui/SectionHeader";
 import { ProjectCard } from "../ui/ProjectCard";
 
 export function ProjectsSection() {
   const sectionRef = useRef(null);
-  const [activeProject, setActiveProject] = useState(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -54,7 +52,9 @@ export function ProjectsSection() {
                   <p className="mt-2 text-sm text-slate-300">{project.subtitle}</p>
                 </div>
                 <button
-                  onClick={() => setActiveProject(project)}
+                  onClick={() => {
+                    window.location.hash = `/projects/${project.slug}`;
+                  }}
                   className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm text-white transition-colors hover:border-brand/40 hover:text-brandSoft"
                   data-interactive="true"
                 >
@@ -89,16 +89,10 @@ export function ProjectsSection() {
       <div className="grid gap-6 lg:grid-cols-2">
         {projects.map((project, index) => (
           <div key={project.title} className="project-reveal">
-            <ProjectCard project={project} index={index} onOpenCaseStudy={setActiveProject} />
+            <ProjectCard project={project} index={index} />
           </div>
         ))}
       </div>
-
-      <ProjectCaseStudyModal
-        project={activeProject}
-        open={Boolean(activeProject)}
-        onClose={() => setActiveProject(null)}
-      />
     </section>
   );
 }

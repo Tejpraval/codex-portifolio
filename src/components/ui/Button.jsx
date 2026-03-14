@@ -9,6 +9,8 @@ export function Button({
   variant = "secondary",
   className,
   onClick,
+  rel,
+  target,
   type = "button",
 }) {
   const baseClass =
@@ -40,8 +42,8 @@ export function Button({
         ref={ref}
         href={href}
         className={cn(baseClass, variants[variant], className)}
-        target={isExternalLink(href) ? "_blank" : undefined}
-        rel={isExternalLink(href) ? "noreferrer" : undefined}
+        target={target ?? (isExternalLink(href) ? "_blank" : undefined)}
+        rel={rel ?? (isExternalLink(href) ? "noreferrer" : undefined)}
         data-interactive="true"
         onClick={onClick}
       >
