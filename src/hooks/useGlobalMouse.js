@@ -4,7 +4,6 @@ const MouseContext = createContext(null);
 
 export function MouseProvider({ children }) {
   const frame = useRef(0);
-  const target = useRef({ x: 0, y: 0, normalizedX: 0, normalizedY: 0, velocity: 0 });
   const current = useRef({ x: 0, y: 0, normalizedX: 0, normalizedY: 0, velocity: 0 });
   const [state, setState] = useState({
     isPointerActive: false,
@@ -12,8 +11,7 @@ export function MouseProvider({ children }) {
   });
 
   useEffect(() => {
-    const POSITION_SMOOTHING = 0.055;
-    const VELOCITY_SMOOTHING = 0.075;
+    const VELOCITY_DECAY = 0.14;
     const MOTION_SCALE = 0.48;
     const MAX_VELOCITY = 0.55;
 
@@ -21,14 +19,7 @@ export function MouseProvider({ children }) {
       window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0;
 
     const update = () => {
-      current.current.x += (target.current.x - current.current.x) * POSITION_SMOOTHING;
-      current.current.y += (target.current.y - current.current.y) * POSITION_SMOOTHING;
-      current.current.normalizedX +=
-        (target.current.normalizedX - current.current.normalizedX) * POSITION_SMOOTHING;
-      current.current.normalizedY +=
-        (target.current.normalizedY - current.current.normalizedY) * POSITION_SMOOTHING;
-      current.current.velocity +=
-        (target.current.velocity - current.current.velocity) * VELOCITY_SMOOTHING;
+      current.current.velocity += (0 - current.current.velocity) * VELOCITY_DECAY;
       document.documentElement.style.setProperty("--mx", `${current.current.normalizedX}`);
       document.documentElement.style.setProperty("--my", `${current.current.normalizedY}`);
       document.documentElement.style.setProperty("--mv", `${current.current.velocity}`);
@@ -41,7 +32,7 @@ export function MouseProvider({ children }) {
       const normalizedY = (event.clientY / window.innerHeight - 0.5) * MOTION_SCALE;
       const velocity = Math.hypot(event.movementX ?? 0, event.movementY ?? 0);
 
-      target.current = {
+      current.current = {
         x: event.clientX,
         y: event.clientY,
         normalizedX,

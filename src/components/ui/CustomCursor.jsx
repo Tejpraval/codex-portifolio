@@ -33,37 +33,54 @@ export function CustomCursor() {
   useEffect(() => {
     if (isTouchDevice || reducedMotion || !cursorRef.current) return undefined;
 
+    const glowXTo = gsap.quickTo(glowRef.current, "x", {
+      duration: 0.14,
+      ease: "power2.out",
+    });
+    const glowYTo = gsap.quickTo(glowRef.current, "y", {
+      duration: 0.14,
+      ease: "power2.out",
+    });
+    const trailSetters = trailRefs.current.map((node, index) =>
+      node
+        ? {
+            xTo: gsap.quickTo(node, "x", {
+              duration: 0.12 + index * 0.025,
+              ease: "power2.out",
+            }),
+            yTo: gsap.quickTo(node, "y", {
+              duration: 0.12 + index * 0.025,
+              ease: "power2.out",
+            }),
+          }
+        : null,
+    );
+
     let frame = 0;
     const tick = () => {
       const { x, y, velocity } = mouse.current;
 
-      gsap.to(cursorRef.current, {
-        x,
-        y,
+      gsap.set(cursorRef.current, { x, y });
+      glowXTo(x);
+      glowYTo(y);
+
+      gsap.set(cursorRef.current, {
         scale: hoveringInteractive ? 1.35 : 1,
         opacity: isPointerActive ? 1 : 0,
-        duration: 0.3,
-        ease: "power3.out",
       });
 
-      gsap.to(glowRef.current, {
-        x,
-        y,
+      gsap.set(glowRef.current, {
         scale: hoveringInteractive ? 1.18 : 1,
         opacity: isPointerActive ? 0.72 : 0,
-        duration: 0.42,
-        ease: "power3.out",
       });
 
       trailRefs.current.forEach((node, index) => {
-        if (!node) return;
-        gsap.to(node, {
-          x,
-          y,
+        if (!node || !trailSetters[index]) return;
+        trailSetters[index].xTo(x);
+        trailSetters[index].yTo(y);
+        gsap.set(node, {
           scale: 1 - index * 0.06 + velocity * 0.04,
-          opacity: Math.max(0.06, 0.28 - index * 0.04),
-          duration: 0.34 + index * 0.06,
-          ease: "power3.out",
+          opacity: isPointerActive ? Math.max(0.06, 0.28 - index * 0.04) : 0,
         });
       });
 
