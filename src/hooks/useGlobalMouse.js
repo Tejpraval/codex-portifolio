@@ -12,10 +12,10 @@ export function MouseProvider({ children }) {
   });
 
   useEffect(() => {
-    const POSITION_SMOOTHING = 0.08;
-    const VELOCITY_SMOOTHING = 0.1;
-    const MOTION_SCALE = 0.72;
-    const MAX_VELOCITY = 0.9;
+    const POSITION_SMOOTHING = 0.055;
+    const VELOCITY_SMOOTHING = 0.075;
+    const MOTION_SCALE = 0.48;
+    const MAX_VELOCITY = 0.55;
 
     const isTouchDevice =
       window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0;
@@ -46,7 +46,7 @@ export function MouseProvider({ children }) {
         y: event.clientY,
         normalizedX,
         normalizedY,
-        velocity: Math.min(velocity / 95, MAX_VELOCITY),
+        velocity: Math.min(velocity / 140, MAX_VELOCITY),
       };
 
       setState((prev) =>

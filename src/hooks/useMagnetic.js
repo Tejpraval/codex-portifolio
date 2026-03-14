@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "../lib/gsap";
 import { useGlobalMouse } from "./useGlobalMouse";
 
-export function useMagnetic({ strength = 0.3, textStrength = 0.45 } = {}) {
+export function useMagnetic({ strength = 0.16, textStrength = 0.22 } = {}) {
   const ref = useRef(null);
   const innerRef = useRef(null);
   const { isTouchDevice } = useGlobalMouse();
@@ -10,6 +10,16 @@ export function useMagnetic({ strength = 0.3, textStrength = 0.45 } = {}) {
   useEffect(() => {
     const node = ref.current;
     if (!node || isTouchDevice) return undefined;
+
+    const reset = () => {
+      gsap.killTweensOf(node);
+      gsap.to(node, { x: 0, y: 0, duration: 0.28, ease: "power3.out" });
+
+      if (innerRef.current) {
+        gsap.killTweensOf(innerRef.current);
+        gsap.to(innerRef.current, { x: 0, y: 0, duration: 0.28, ease: "power3.out" });
+      }
+    };
 
     const handleMove = (event) => {
       const bounds = node.getBoundingClientRect();
@@ -19,7 +29,7 @@ export function useMagnetic({ strength = 0.3, textStrength = 0.45 } = {}) {
       gsap.to(node, {
         x: x * strength,
         y: y * strength,
-        duration: 0.4,
+        duration: 0.52,
         ease: "power3.out",
       });
 
@@ -27,25 +37,24 @@ export function useMagnetic({ strength = 0.3, textStrength = 0.45 } = {}) {
         gsap.to(innerRef.current, {
           x: x * textStrength,
           y: y * textStrength,
-          duration: 0.45,
+          duration: 0.58,
           ease: "power3.out",
         });
       }
     };
 
-    const reset = () => {
-      gsap.to(node, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.45)" });
-      if (innerRef.current) {
-        gsap.to(innerRef.current, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.45)" });
-      }
-    };
-
     node.addEventListener("pointermove", handleMove);
     node.addEventListener("pointerleave", reset);
+    node.addEventListener("pointerup", reset);
+    node.addEventListener("pointercancel", reset);
+    node.addEventListener("blur", reset);
 
     return () => {
       node.removeEventListener("pointermove", handleMove);
       node.removeEventListener("pointerleave", reset);
+      node.removeEventListener("pointerup", reset);
+      node.removeEventListener("pointercancel", reset);
+      node.removeEventListener("blur", reset);
     };
   }, [isTouchDevice, strength, textStrength]);
 

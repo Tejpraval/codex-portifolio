@@ -195,6 +195,22 @@ export function ProjectCaseStudyModal({ project, open, onClose }) {
                         </span>
                       ))}
                     </div>
+                    {project.status ? (
+                      <div className="mt-6 rounded-[22px] border border-sky-400/20 bg-sky-400/[0.05] p-4">
+                        <p className="text-xs uppercase tracking-[0.22em] text-sky-200">{project.status.label}</p>
+                        <p className="mt-3 text-sm leading-7 text-slate-300">{project.status.summary}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {project.status.progress.map((item) => (
+                            <span
+                              key={item.label}
+                              className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-slate-200"
+                            >
+                              {item.label}: {item.value}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
                     <div className="mt-6 flex flex-wrap gap-3">
                       <Button href={project.github} icon={Github}>
                         GitHub
@@ -203,6 +219,10 @@ export function ProjectCaseStudyModal({ project, open, onClose }) {
                         <Button href={project.demo} variant="primary">
                           Live Demo
                         </Button>
+                      ) : project.status ? (
+                        <span className="inline-flex items-center rounded-full border border-sky-400/20 bg-sky-400/[0.06] px-4 py-3 text-sm font-medium text-sky-100">
+                          Demo coming soon
+                        </span>
                       ) : null}
                     </div>
                   </div>

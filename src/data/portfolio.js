@@ -17,6 +17,8 @@ export const navItems = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Achievements", href: "#achievements" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
 ];
@@ -101,7 +103,7 @@ export const skillGroups = [
   },
   {
     title: "Database",
-    items: ["MongoDB", "MySQL", "PostgreSQL"],
+    items: ["MongoDB", "PostgreSQL"],
   },
   {
     title: "Tools",
@@ -173,6 +175,14 @@ export const projects = [
       "Implemented governance as a strict state machine where every mutation must move through draft, approval, execution, and controlled rollback paths.",
     tech: ["MERN", "TypeScript", "RBAC"],
     proof: ["RBAC + ABAC simulation", "Risk-based approvals", "Atomic rollback"],
+    status: {
+      label: "Still in development",
+      summary: "Backend is nearly complete and the frontend implementation is in active progress.",
+      progress: [
+        { label: "Backend", value: "95% completed" },
+        { label: "Frontend", value: "65% completed" },
+      ],
+    },
     metrics: [
       { label: "Authorization", value: "RBAC + ABAC" },
       { label: "Execution", value: "Atomic" },
@@ -329,6 +339,60 @@ export const contacts = [
     value: "Tejpraval",
     href: "https://github.com/Tejpraval",
     icon: Github,
+  },
+];
+
+export const certifications = [
+  {
+    title: "Explored the fundamentals of Model Context Protocol",
+    issuer: "NxtWave",
+    date: "Aug 2025",
+    description:
+      "Completed foundational work around Model Context Protocol concepts and how AI systems exchange context across tools and workflows.",
+    image: "/certificates/gen-ai.jpeg",
+    href: "https://drive.google.com/drive/folders/10jQnFPvD8B-0kU894rK_YZ1tNkCRssvk?usp=sharing",
+    tags: ["MCP", "AI Tools", "Protocol Basics"],
+  },
+  {
+    title: "Built a pitch-ready product successfully using 10+ AI tools",
+    issuer: "NxtWave",
+    date: "Sept 2024",
+    description:
+      "Built a pitch-ready product workflow using more than ten AI tools across ideation, structuring, and execution.",
+    image: "/certificates/Certificate_OF_PROJECT_COMPLETION.png",
+    href: "https://drive.google.com/drive/folders/1-GkYCUVsLneKrKbOLxj99eO7RPh59tgY?usp=sharing",
+    tags: ["Product Build", "AI Workflow", "Execution"],
+  },
+  {
+    title: "Completed the project on Malicious Email Investigation",
+    issuer: "NxtWave",
+    date: "Oct 2023",
+    description:
+      "Finished a security-focused project on malicious email investigation, covering practical analysis and threat-aware thinking.",
+    image: "/certificates/Ethical_hacking.png",
+    href: "https://drive.google.com/drive/folders/14ikuN-jRPxxnLTMy_1yNzlMwWXR47L6S?usp=sharing",
+    tags: ["Cybersecurity", "Email Analysis", "Investigation"],
+  },
+];
+
+export const achievements = [
+  {
+    title: "Campus Ambassador",
+    organization: "Alpha Innovation",
+    date: "Aug 2025",
+    description:
+      "Recognized as a Campus Ambassador for initiative, consistency, and impactful contributions across outreach and community-facing work.",
+    image: "/achievements/campus_ambassador.png",
+    tags: ["Leadership", "Representation", "Impact"],
+  },
+  {
+    title: "21-Days NxtCode Challenge",
+    organization: "NxtWave",
+    date: "May 2024",
+    description:
+      "Completed the challenge while assisting in participant coordination and supporting social-awareness-focused activities.",
+    image: "/achievements/21dayschallenge.jpeg",
+    tags: ["Challenge", "Coordination", "Community"],
   },
 ];
 

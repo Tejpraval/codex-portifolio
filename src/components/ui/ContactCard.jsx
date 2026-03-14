@@ -86,7 +86,7 @@ export function ContactCard({ item }) {
         onClick={copyValue}
         whileHover={{ y: -8 }}
         whileTap={{ scale: 0.985 }}
-        className="glass-panel group relative flex items-center justify-between overflow-hidden rounded-[26px] p-5 text-left transition-all duration-300 hover:border-brand/40 hover:shadow-glow"
+        className="glass-panel group relative flex min-h-[112px] items-center justify-between overflow-hidden rounded-[26px] p-5 text-left transition-all duration-300 hover:border-brand/40 hover:shadow-glow"
       >
         <div
           ref={glowRef}
@@ -127,7 +127,7 @@ export function ContactCard({ item }) {
       target="_blank"
       rel="noreferrer"
       whileHover={{ y: -8 }}
-      className="glass-panel group flex items-center justify-between rounded-[26px] p-5 transition-all duration-300 hover:border-brand/40 hover:shadow-glow"
+      className="glass-panel group flex min-h-[112px] items-center justify-between rounded-[26px] p-5 transition-all duration-300 hover:border-brand/40 hover:shadow-glow"
     >
       <div className="flex items-center gap-4">
         <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-3 text-brand">

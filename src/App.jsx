@@ -4,8 +4,10 @@ import { Footer } from "./components/layout/Footer";
 import { Navbar } from "./components/layout/Navbar";
 import { ScrollProgress } from "./components/layout/ScrollProgress";
 import { AboutSection } from "./components/sections/AboutSection";
+import { AchievementsSection } from "./components/sections/AchievementsSection";
 import { ClosingSection } from "./components/sections/ClosingSection";
 import { ContactSection } from "./components/sections/ContactSection";
+import { CertificationsSection } from "./components/sections/CertificationsSection";
 import { ExperienceSection } from "./components/sections/ExperienceSection";
 import { HeroSection } from "./components/sections/HeroSection";
 import { IntroLoader, shouldShowIntro } from "./components/intro/IntroLoader";
@@ -49,6 +51,8 @@ function App() {
             <SkillsSection />
             <ProjectsSection />
             <ExperienceSection />
+            <AchievementsSection />
+            <CertificationsSection />
             <ResumeSection />
             <ContactSection />
             <ClosingSection />

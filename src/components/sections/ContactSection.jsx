@@ -3,6 +3,8 @@ import { contacts } from "../../data/portfolio";
 import { ContactSignalScene } from "../three/ContactSignalScene";
 import { SectionHeader } from "../ui/SectionHeader";
 import { ContactCard } from "../ui/ContactCard";
+import { ContactForm } from "../ui/ContactForm";
+import { ContactInsightsPanel } from "../ui/ContactInsightsPanel";
 
 export function ContactSection() {
   const panelRef = useRef(null);
@@ -60,14 +62,15 @@ export function ContactSection() {
       <SectionHeader
         eyebrow="Contact"
         title="Open to internships, project work, and engineering conversations."
-        copy="Contact details are listed below for email, LinkedIn, GitHub, and other channels."
+        copy="Reach out through the form or use the direct contact channels below."
       />
 
-      <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
-        <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-8 lg:items-start lg:grid-cols-[1fr_0.9fr]">
+        <div className="grid auto-rows-max content-start gap-5 md:grid-cols-2">
           {contacts.map((item) => (
             <ContactCard key={item.title} item={item} />
           ))}
+          <ContactInsightsPanel />
         </div>
 
         <div ref={panelRef} className="glass-panel relative overflow-hidden rounded-[30px] p-6">
@@ -77,28 +80,7 @@ export function ContactSection() {
             className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.18),transparent_62%)] opacity-0 blur-xl transition-opacity duration-200"
           />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,122,24,0.12),transparent_32%)]" />
-          <div className="relative z-10">
-            <p className="text-xs uppercase tracking-[0.24em] text-brandSoft">Live Collaboration Signal</p>
-            <h3 className="mt-4 max-w-sm text-2xl font-semibold text-white">
-              Work across frontend interfaces, backend systems, and applied AI.
-            </h3>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs uppercase tracking-[0.22em] text-slate-300">
-                Frontend polish
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs uppercase tracking-[0.22em] text-slate-300">
-                Backend systems
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs uppercase tracking-[0.22em] text-slate-300">
-                AI-native ideas
-              </span>
-            </div>
-            <div className="mt-10 rounded-[24px] border border-white/10 bg-black/20 px-4 py-4 backdrop-blur-xl">
-              <p className="text-sm leading-7 text-slate-300">
-                Available for internships, project work, and general engineering conversations.
-              </p>
-            </div>
-          </div>
+          <ContactForm />
         </div>
       </div>
     </section>

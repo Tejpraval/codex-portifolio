@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navItems } from "../../data/portfolio";
-import { Button } from "../ui/Button";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -47,12 +46,6 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
-        </div>
-
-        <div className="hidden md:block">
-          <Button href="#contact" variant="primary">
-            Contact
-          </Button>
         </div>
 
         <button

@@ -134,7 +134,7 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="about-photo-reveal relative">
+        <div className="about-photo-reveal relative lg:pt-16">
           <div className="about-photo-ring pointer-events-none absolute inset-0 m-auto h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.2),transparent_62%)] blur-[70px]" />
           <div className="about-photo-shell relative mx-auto max-w-md perspective-[1200px]">
             <article
@@ -152,15 +152,15 @@ export function AboutSection() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="relative mt-4 flex items-center justify-between gap-4 rounded-[24px] border border-white/10 bg-white/[0.04] px-4 py-3">
-                <div>
-                  <p className="text-lg font-semibold text-white">Tej Praval</p>
-                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">
+              <div className="relative mt-4 flex items-center justify-between gap-4 rounded-[24px] border border-white/10 bg-white/[0.04] px-5 py-4">
+                <div className="min-w-0">
+                  <p className="text-[1.7rem] font-semibold leading-none text-white">Tej Praval</p>
+                  <p className="mt-2 max-w-[18rem] text-xs uppercase tracking-[0.24em] text-slate-400">
                     Full Stack Developer | AI & ML
                   </p>
                 </div>
-                <div className="rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs uppercase tracking-[0.22em] text-brandSoft">
-                  Profile
+                <div className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-slate-300">
+                  About Me
                 </div>
               </div>
             </article>

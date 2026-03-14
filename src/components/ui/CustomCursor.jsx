@@ -40,18 +40,18 @@ export function CustomCursor() {
       gsap.to(cursorRef.current, {
         x,
         y,
-        scale: hoveringInteractive ? 1.7 : 1,
+        scale: hoveringInteractive ? 1.35 : 1,
         opacity: isPointerActive ? 1 : 0,
-        duration: 0.22,
+        duration: 0.3,
         ease: "power3.out",
       });
 
       gsap.to(glowRef.current, {
         x,
         y,
-        scale: hoveringInteractive ? 1.35 : 1,
-        opacity: isPointerActive ? 0.85 : 0,
-        duration: 0.35,
+        scale: hoveringInteractive ? 1.18 : 1,
+        opacity: isPointerActive ? 0.72 : 0,
+        duration: 0.42,
         ease: "power3.out",
       });
 
@@ -60,9 +60,9 @@ export function CustomCursor() {
         gsap.to(node, {
           x,
           y,
-          scale: 1 - index * 0.08 + velocity * 0.08,
-          opacity: Math.max(0.07, 0.35 - index * 0.05),
-          duration: 0.28 + index * 0.05,
+          scale: 1 - index * 0.06 + velocity * 0.04,
+          opacity: Math.max(0.06, 0.28 - index * 0.04),
+          duration: 0.34 + index * 0.06,
           ease: "power3.out",
         });
       });

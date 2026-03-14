@@ -4,7 +4,7 @@ import { useTiltCard } from "../../hooks/useTiltCard";
 import { Button } from "./Button";
 
 export function ProjectCard({ project, index, onOpenCaseStudy }) {
-  const { ref, glareRef } = useTiltCard({ maxRotate: 7, depth: 18 });
+  const { ref, glareRef } = useTiltCard({ maxRotate: 4.2, depth: 10 });
 
   return (
     <motion.div
@@ -66,6 +66,10 @@ export function ProjectCard({ project, index, onOpenCaseStudy }) {
             {project.demo ? (
               <Button href={project.demo} variant="primary">
                 Live Demo
+              </Button>
+            ) : project.status ? (
+              <Button onClick={() => onOpenCaseStudy(project)} variant="secondary">
+                Demo coming soon
               </Button>
             ) : null}
           </div>
