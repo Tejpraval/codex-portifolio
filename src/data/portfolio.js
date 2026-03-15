@@ -189,7 +189,7 @@ export const projects = [
       { label: "State Model", value: "Lifecycle-driven" },
     ],
     github: "https://github.com/Tejpraval/tms",
-    demo: "",
+    demo: "https://tms-pi-silk.vercel.app",
     accent: "from-[#0ea5e9] via-[#7dd3fc] to-[#d8f5ff]",
     architecture: [
       "Normalized domain models around Policy, PolicyVersion, PolicyApproval, User, and Role",
@@ -225,6 +225,14 @@ export const projects = [
       "Combined modern sentence embeddings with traditional ML to reach strong accuracy without depending on heavier transformer pipelines.",
     tech: ["Python", "TensorFlow", "Scikit-learn"],
     proof: ["USE embeddings", "ExtraTrees", "88.88% accuracy"],
+    status: {
+      label: "Dashboard in progress",
+      summary: "The model has been tested in Google Colab, and a dedicated interactive dashboard is still being built.",
+      progress: [
+        { label: "Model testing", value: "Completed" },
+        { label: "Dashboard", value: "Coming soon" },
+      ],
+    },
     metrics: [
       { label: "Final Accuracy", value: "88.88%" },
       { label: "Embedding", value: "USE" },
@@ -232,6 +240,7 @@ export const projects = [
     ],
     github: "https://github.com/Tejpraval/Sentiment_Analysis_of_Social_Media_Comments",
     demo: "",
+    
     accent: "from-[#8b5cf6] via-[#c4b5fd] to-[#efe7ff]",
     architecture: [
       "Text preprocessing and semantic embedding with Universal Sentence Encoder",
@@ -425,3 +434,7 @@ export const closingPillars = [
   "Experience across frontend development, backend architecture, and AI-related features",
   "Interested in teams working on thoughtful products and reliable systems",
 ];
+
+
+
+
