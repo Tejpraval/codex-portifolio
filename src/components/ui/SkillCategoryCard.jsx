@@ -1,15 +1,19 @@
 import { useEffect, useRef } from "react";
-import { Braces, Database, Layers3, ServerCog, Sparkles, Wrench } from "lucide-react";
+import { Braces, Cloud, GitBranch, ServerCog, Sparkles, TerminalSquare } from "lucide-react";
 import { gsap } from "../../lib/gsap";
 import { useTiltCard } from "../../hooks/useTiltCard";
 import { SkillBadge } from "./SkillBadge";
 
 const iconMap = {
+  Cloud,
+  "DevOps Tools": ServerCog,
+  "OS / Scripting": TerminalSquare,
+  "Version Control": GitBranch,
   Languages: Braces,
-  Frontend: Layers3,
+  Frontend: Sparkles,
   Backend: ServerCog,
-  Database: Database,
-  Tools: Wrench,
+  Database: Braces,
+  Tools: Sparkles,
   Concepts: Sparkles,
 };
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { highlights, interests, stats } from "../../data/portfolio";
+import { careerSnapshot, highlights, interests, stats } from "../../data/portfolio";
 import { useTiltCard } from "../../hooks/useTiltCard";
 import { gsap } from "../../lib/gsap";
 import { SectionHeader } from "../ui/SectionHeader";
@@ -38,6 +38,12 @@ function Counter({ value, suffix, label }) {
     </div>
   );
 }
+
+const snapshotItems = [
+  { title: "Who am I?", copy: careerSnapshot.whoAmI },
+  { title: "Why this domain?", copy: careerSnapshot.whyDomain },
+  { title: "Career goal", copy: careerSnapshot.careerGoal },
+];
 
 export function AboutSection() {
   const sectionRef = useRef(null);
@@ -84,18 +90,21 @@ export function AboutSection() {
   return (
     <section id="about" ref={sectionRef} className="section-shell py-24 md:py-32">
       <SectionHeader
-        eyebrow="About"
-        title="Computer Science student focused on backend systems, AI applications, and web products."
-        copy="Currently studying AI and ML at Lovely Professional University and building projects across full-stack development and applied AI."
+        eyebrow="About Me"
+        title="Career Snapshot built around clarity, domain choice, and long-term engineering direction."
+        copy="A concise summary covering who I am, why I chose this domain, and the kind of engineer I aim to become."
       />
 
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="glass-panel glow-ring rounded-[32px] p-7 md:p-8">
-          <p className="text-lg leading-8 text-slate-200">
-            works at the intersection of product design, backend architecture, and applied
-            machine learning, with a strong preference for software that ships cleanly and scales
-            responsibly.
-          </p>
+          <div className="grid gap-4 md:grid-cols-3">
+            {snapshotItems.map((item) => (
+              <div key={item.title} className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5">
+                <p className="text-[11px] uppercase tracking-[0.24em] text-brandSoft">{item.title}</p>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{item.copy}</p>
+              </div>
+            ))}
+          </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
             {interests.map((item) => (
@@ -156,7 +165,7 @@ export function AboutSection() {
                 <div className="min-w-0">
                   <p className="text-[1.7rem] font-semibold leading-none text-white">Tej Praval</p>
                   <p className="mt-2 max-w-[18rem] text-xs uppercase tracking-[0.24em] text-slate-400">
-                    Full Stack Developer | AI & ML
+                    Full Stack Developer | Backend Focus
                   </p>
                 </div>
                 <div className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-slate-300">

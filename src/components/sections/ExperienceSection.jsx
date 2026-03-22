@@ -49,9 +49,9 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="section-shell py-24 md:py-32">
       <SectionHeader
-        eyebrow="Experience"
-        title="Internship experience across applied AI and frontend development."
-        copy="A timeline of roles, responsibilities, and project work completed during internships."
+        eyebrow="Internship"
+        title="Internship entries now show role, tasks, and skills in a crisp recruiter-friendly format."
+        copy="If internship details are available, each card highlights the work completed and the main skills demonstrated."
       />
 
       <div ref={timelineRef} className="relative mx-auto max-w-4xl">
@@ -81,6 +81,24 @@ export function ExperienceSection() {
                     </div>
                   </div>
                   <p className="text-sm leading-7 text-slate-300">{item.description}</p>
+                  <div className="mt-5">
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Tasks</p>
+                    <ul className="mt-3 space-y-2 text-sm leading-7 text-slate-300">
+                      {item.tasks.map((task) => (
+                        <li key={task}>{task}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {item.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-slate-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                   <div className="mt-6">
                     <Button href={item.certificate}>View Certificate</Button>
                   </div>

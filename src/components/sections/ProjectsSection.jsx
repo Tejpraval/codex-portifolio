@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { featuredProjects, projects } from "../../data/portfolio";
+import { featuredProjects, projectSpotlight, projects } from "../../data/portfolio";
 import { gsap } from "../../lib/gsap";
 import { SectionHeader } from "../ui/SectionHeader";
 import { ProjectCard } from "../ui/ProjectCard";
@@ -34,9 +34,29 @@ export function ProjectsSection() {
     <section id="projects" ref={sectionRef} className="section-shell py-24 md:py-32">
       <SectionHeader
         eyebrow="Projects"
-        title="Selected projects across product interfaces, backend systems, and applied AI."
-        copy="Each project outlines the problem, the role, the outcome, and the key technical decisions involved."
+        title="Project section structured around title, description, tools used, and skills demonstrated."
+        copy="The first project is highlighted in the exact academic format, followed by the broader project portfolio."
       />
+
+      <div className="project-reveal mb-8 rounded-[30px] border border-white/10 bg-[linear-gradient(135deg,rgba(255,122,24,0.12),rgba(255,255,255,0.04))] p-6 md:p-8">
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-brandSoft">Strong Project Spotlight</p>
+            <h3 className="mt-3 text-3xl font-semibold text-white">{projectSpotlight.title}</h3>
+            <p className="mt-4 text-sm leading-8 text-slate-300">{projectSpotlight.description}</p>
+          </div>
+          <div className="grid gap-4">
+            <div className="rounded-[24px] border border-white/10 bg-black/20 p-5">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Tools Used</p>
+              <p className="mt-3 text-sm leading-7 text-slate-300">{projectSpotlight.toolsUsed.join(", ")}</p>
+            </div>
+            <div className="rounded-[24px] border border-white/10 bg-black/20 p-5">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-slate-500">Skills Demonstrated</p>
+              <p className="mt-3 text-sm leading-7 text-slate-300">{projectSpotlight.skillsDemonstrated.join(", ")}</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="mb-8 grid gap-5 lg:grid-cols-2">
         {featuredProjects.map((project) => (

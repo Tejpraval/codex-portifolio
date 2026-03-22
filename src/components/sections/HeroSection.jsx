@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Youtube } from "lucide-react";
-import { heroLinks, heroRoles, heroSpotlight } from "../../data/portfolio";
+import { heroIntro, heroLinks, heroRoles, heroSpotlight } from "../../data/portfolio";
 import { useGlobalMouse } from "../../hooks/useGlobalMouse";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { useTypewriter } from "../../hooks/useTypewriter";
@@ -14,6 +14,7 @@ export function HeroSection() {
   const typedRole = useTypewriter(heroRoles);
   const { mouse, isTouchDevice } = useGlobalMouse();
   const reducedMotion = useReducedMotion();
+  const [firstName, ...restName] = heroIntro.name.split(" ");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -89,27 +90,30 @@ export function HeroSection() {
       <div className="section-shell relative z-10 flex min-h-[calc(100vh-7rem)] items-center">
         <div className="grid w-full items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="parallax-layer max-w-3xl">
-            <span className="chip hero-reveal">AI & Full-Stack Portfolio</span>
+            <span className="chip hero-reveal">Professional Portfolio</span>
             <div className="hero-reveal relative mt-8 inline-flex">
               <div className="absolute inset-0 rounded-full bg-brand/30 blur-3xl" />
               <div className="absolute -inset-x-12 -inset-y-6 rounded-full bg-[conic-gradient(from_90deg,rgba(255,122,24,0.18),transparent,rgba(255,255,255,0.12),transparent,rgba(255,122,24,0.22))] opacity-60 blur-2xl" />
               <h1 className="hero-depth-a relative font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-8xl">
-                Tej <span className="text-gradient">Praval</span>
+                {firstName} <span className="text-gradient">{restName.join(" ")}</span>
               </h1>
             </div>
 
-            <div className="hero-reveal hero-depth-b mt-6">
+            <div className="hero-reveal hero-depth-b mt-6 space-y-4">
               <p className="text-lg text-slate-200 md:text-2xl">
-                Full Stack Developer <span className="mx-2 text-brand">|</span>
+                {heroIntro.targetRole} <span className="mx-2 text-brand">|</span>
                 <span className="text-gradient"> {typedRole}</span>
                 <span className="ml-1 inline-block h-6 w-px animate-pulse bg-brand align-middle" />
               </p>
+              <p className="max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+                {heroIntro.tagline}
+              </p>
             </div>
 
-            <p className="hero-reveal hero-depth-a mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
-              Computer Science student building premium web platforms, scalable backend
-              systems, and AI-native software with a product mindset.
-            </p>
+            <div className="hero-reveal hero-depth-a mt-6 max-w-2xl rounded-[24px] border border-white/10 bg-white/[0.04] p-5">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-brandSoft">Professional Headline</p>
+              <p className="mt-3 text-sm leading-7 text-slate-200 md:text-base">{heroIntro.headline}</p>
+            </div>
 
             <div className="hero-reveal hero-depth-b mt-10 flex flex-wrap gap-4">
               {heroLinks.map((link) => (
@@ -169,9 +173,7 @@ export function HeroSection() {
                 </div>
                 <div className="rounded-[26px] border border-white/10 bg-black/20 p-5">
                   <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Current Focus</p>
-                  <p className="mt-3 text-xl font-medium text-white">
-                    Scalable backend systems, AI product workflows, and polished frontend execution.
-                  </p>
+                  <p className="mt-3 text-xl font-medium text-white">{heroIntro.headline}</p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="rounded-[22px] border border-white/10 bg-white/[0.04] p-4">
@@ -180,7 +182,7 @@ export function HeroSection() {
                   </div>
                   <div className="rounded-[22px] border border-white/10 bg-white/[0.04] p-4">
                     <p className="text-3xl font-semibold text-white">AI/ML</p>
-                    <p className="mt-2 text-sm text-slate-400">Intelligent systems design</p>
+                    <p className="mt-2 text-sm text-slate-400">Applied experimentation</p>
                   </div>
                 </div>
               </div>

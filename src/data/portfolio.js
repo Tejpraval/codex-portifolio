@@ -17,7 +17,7 @@ export const navItems = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
-  { label: "Achievements", href: "#achievements" },
+  { label: "Activities", href: "#achievements" },
   { label: "Certifications", href: "#certifications" },
   { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
@@ -38,7 +38,23 @@ export const heroSpotlight = {
   cta: "Visit YouTube Channel",
 };
 
-export const heroRoles = ["Full Stack Developer", "AI & ML Engineer", "Backend Systems Builder"];
+export const heroRoles = ["Full Stack Developer", "Backend-Focused Engineer", "AI & ML Builder"];
+
+export const heroIntro = {
+  name: "Tej Praval",
+  targetRole: "Full Stack Developer",
+  tagline: "Building reliable web products, clean backend systems, and practical AI-driven solutions.",
+  headline: "Backend-focused developer with MERN stack projects, TypeScript exposure, and applied AI experience.",
+};
+
+export const careerSnapshot = {
+  whoAmI:
+    "I am a Computer Science student specializing in Artificial Intelligence and Machine Learning at Lovely Professional University, with hands-on experience in full-stack and applied AI projects.",
+  whyDomain:
+    "I chose software engineering with a backend and product focus because I enjoy solving real problems through APIs, system logic, and user-facing applications that work reliably.",
+  careerGoal:
+    "My goal is to grow into a software engineer who builds production-ready platforms with strong foundations in backend systems, cloud deployment, and developer tools.",
+};
 
 export const heroProof = [
   "Computer Science (AI & ML) student at Lovely Professional University",
@@ -90,30 +106,49 @@ export const interests = [
 
 export const skillGroups = [
   {
-    title: "Languages",
-    items: ["C++", "TypeScript", "JavaScript", "Python", "C"],
+    title: "Cloud",
+    items: ["Vercel", "Cloud Deployment Basics", "Environment Variables", "REST API Hosting"],
   },
   {
-    title: "Frontend",
-    items: ["React.js", "HTML5", "CSS3", "Bootstrap", "Tailwind"],
+    title: "DevOps Tools",
+    items: ["Docker", "Postman", "Build Workflows", "Deployment Setup"],
   },
   {
-    title: "Backend",
-    items: ["Node.js", "Express.js", "REST APIs", "JWT Auth", "Middleware"],
+    title: "OS / Scripting",
+    items: ["Linux Basics", "Windows", "Shell Basics", "JavaScript"],
   },
   {
-    title: "Database",
-    items: ["MongoDB", "PostgreSQL"],
-  },
-  {
-    title: "Tools",
-    items: ["Git", "Postman", "MongoDB Compass", "Figma", "Docker"],
-  },
-  {
-    title: "Concepts",
-    items: ["RBAC", "API Security", "Policy Versioning", "DSA"],
+    title: "Version Control",
+    items: ["Git", "GitHub", "Branching", "Repository Management"],
   },
 ];
+
+export const toolsPlatforms = [
+  {
+    category: "Cloud",
+    tools: ["Vercel", "REST API Hosting", "Environment Configuration"],
+  },
+  {
+    category: "DevOps Tools",
+    tools: ["Docker", "Postman", "Deployment Workflows"],
+  },
+  {
+    category: "OS / Scripting",
+    tools: ["Linux Basics", "Windows", "Shell Basics", "JavaScript"],
+  },
+  {
+    category: "Version Control",
+    tools: ["Git", "GitHub", "Branching Strategy"],
+  },
+];
+
+export const projectSpotlight = {
+  title: "StartupMatch",
+  description:
+    "StartupMatch is a MERN-based platform that helps founders discover compatible co-founders through profile analysis, weighted matching, and real-time collaboration. The project focuses on solving early-stage team formation with a more structured and product-ready experience than generic networking platforms.",
+  toolsUsed: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "Socket.io"],
+  skillsDemonstrated: ["Full-Stack Development", "API Design", "Real-Time Features", "Authentication", "Problem Solving"],
+};
 
 export const projects = [
   {
@@ -240,7 +275,6 @@ export const projects = [
     ],
     github: "https://github.com/Tejpraval/Sentiment_Analysis_of_Social_Media_Comments",
     demo: "",
-    
     accent: "from-[#8b5cf6] via-[#c4b5fd] to-[#efe7ff]",
     architecture: [
       "Text preprocessing and semantic embedding with Universal Sentence Encoder",
@@ -312,6 +346,11 @@ export const experiences = [
     duration: "Aug 5, 2025 - Oct 5, 2025",
     description:
       "Worked on supervised classification models and AI experimentation pipelines.",
+    tasks: [
+      "Built and tested classification workflows for applied AI use cases.",
+      "Compared model behavior and documented results from experimentation runs.",
+    ],
+    skills: ["Python", "Machine Learning", "Model Evaluation"],
     certificate: "https://drive.google.com/drive/folders/1Bbd0r2km-gg9dmJkVMulrUfF4eNvpmSt?usp=sharing",
   },
   {
@@ -320,6 +359,11 @@ export const experiences = [
     duration: "Mar 20, 2025 - Apr 20, 2025",
     description:
       "Developed responsive frontend applications using React and Bootstrap.",
+    tasks: [
+      "Built responsive user interfaces for web applications.",
+      "Translated layout requirements into reusable frontend components.",
+    ],
+    skills: ["React", "Bootstrap", "Responsive Design"],
     certificate: "https://drive.google.com/drive/folders/1hA23K0hDIb1xDeiRfyKsZYrGY1warGsb?usp=sharing",
   },
 ];
@@ -405,6 +449,26 @@ export const achievements = [
   },
 ];
 
+export const softSkills = [
+  "Problem solving",
+  "Communication",
+  "Adaptability",
+  "Team collaboration",
+];
+
+export const technicalActivities = [
+  {
+    title: "GitHub Project Documentation",
+    description:
+      "Maintain public project repositories with readable structure, source code, and deployment links for recruiter review.",
+  },
+  {
+    title: "MetaSynapse AI Technical Content",
+    description:
+      "Explore AI tools, experiments, and technical builds through a YouTube channel focused on hands-on learning and project presentation.",
+  },
+];
+
 export const highlights = [
   {
     icon: Sparkles,
@@ -434,7 +498,4 @@ export const closingPillars = [
   "Experience across frontend development, backend architecture, and AI-related features",
   "Interested in teams working on thoughtful products and reliable systems",
 ];
-
-
-
 

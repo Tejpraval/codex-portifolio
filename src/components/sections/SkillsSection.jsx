@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { skillGroups } from "../../data/portfolio";
+import { skillGroups, toolsPlatforms } from "../../data/portfolio";
 import { gsap } from "../../lib/gsap";
 import { useGlobalMouse } from "../../hooks/useGlobalMouse";
 import { useReducedMotion } from "../../hooks/useReducedMotion";
@@ -119,9 +119,9 @@ export function SkillsSection() {
 
         <div className="skills-heading-reveal relative z-10">
           <SectionHeader
-            eyebrow="Skills"
-            title="Tools and technologies used across interfaces, APIs, data, and system design."
-            copy="The stack is grouped by how it is used in product development and engineering work."
+            eyebrow="Core Technical Skills"
+            title="Skills grouped into recruiter-friendly categories instead of a random tool list."
+            copy="The stack is organized into Cloud, DevOps Tools, OS or Scripting, and Version Control for faster review."
           />
           <div className="skills-title-glow" />
           <div className="skills-title-underline mt-[-1rem] mb-10 h-px w-full max-w-sm bg-gradient-to-r from-brand via-[#ffd4b5] to-transparent" />
@@ -143,10 +143,37 @@ export function SkillsSection() {
           </div>
         </div>
 
-        <div ref={gridRef} className="skills-grid grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div ref={gridRef} className="skills-grid grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {skillGroups.map((group, index) => (
             <SkillCategoryCard key={group.title} group={group} index={index} />
           ))}
+        </div>
+
+        <div className="skills-heading-reveal relative z-10 mt-12 overflow-hidden rounded-[30px] border border-white/10 bg-black/20 p-6 md:p-8">
+          <div className="mb-6 flex items-center justify-between gap-4">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.24em] text-brandSoft">Tools & Platforms</p>
+              <h3 className="mt-3 text-2xl font-semibold text-white">Structured table for quick recruiter scanning.</h3>
+            </div>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-left text-sm text-slate-300">
+              <thead>
+                <tr className="border-b border-white/10 text-[11px] uppercase tracking-[0.24em] text-slate-500">
+                  <th className="px-4 py-3">Category</th>
+                  <th className="px-4 py-3">Tools / Platforms</th>
+                </tr>
+              </thead>
+              <tbody>
+                {toolsPlatforms.map((row) => (
+                  <tr key={row.category} className="border-b border-white/5 align-top last:border-b-0">
+                    <td className="px-4 py-4 font-medium text-white">{row.category}</td>
+                    <td className="px-4 py-4 leading-7 text-slate-300">{row.tools.join(", ")}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
