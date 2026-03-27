@@ -77,7 +77,7 @@ export function HeroSection() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative isolate min-h-screen overflow-hidden pt-28"
+      className="relative isolate min-h-screen overflow-hidden pt-24 sm:pt-28"
     >
       <HeroScene />
       <div className="pointer-events-none absolute inset-0 bg-grid bg-grid opacity-30 hero-depth-b" />
@@ -87,23 +87,24 @@ export function HeroSection() {
       <div className="hero-orb hero-depth-b bottom-24 right-[12%] hidden lg:block" />
       <div className="hero-orb hero-depth-a bottom-[18%] left-[42%] hidden lg:block" />
 
-      <div className="section-shell relative z-10 flex min-h-[calc(100vh-7rem)] items-center">
-        <div className="grid w-full items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="section-shell relative z-10 flex min-h-[calc(100vh-6rem)] items-center pb-20 sm:pb-24">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="parallax-layer max-w-3xl">
             <span className="chip hero-reveal">Professional Portfolio</span>
-            <div className="hero-reveal relative mt-8 inline-flex">
+            <div className="hero-reveal relative mt-6 inline-flex sm:mt-8">
               <div className="absolute inset-0 rounded-full bg-brand/30 blur-3xl" />
               <div className="absolute -inset-x-12 -inset-y-6 rounded-full bg-[conic-gradient(from_90deg,rgba(255,122,24,0.18),transparent,rgba(255,255,255,0.12),transparent,rgba(255,122,24,0.22))] opacity-60 blur-2xl" />
-              <h1 className="hero-depth-a relative font-display text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-8xl">
+              <h1 className="hero-depth-a relative font-display text-4xl font-semibold tracking-tight text-white sm:text-6xl lg:text-8xl">
                 {firstName} <span className="text-gradient">{restName.join(" ")}</span>
               </h1>
             </div>
 
             <div className="hero-reveal hero-depth-b mt-6 space-y-4">
-              <p className="text-lg text-slate-200 md:text-2xl">
-                {heroIntro.targetRole} <span className="mx-2 text-brand">|</span>
-                <span className="text-gradient"> {typedRole}</span>
-                <span className="ml-1 inline-block h-6 w-px animate-pulse bg-brand align-middle" />
+              <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base text-slate-200 sm:text-lg md:text-2xl">
+                <span>{heroIntro.targetRole}</span>
+                <span className="hidden text-brand sm:inline">|</span>
+                <span className="text-gradient">{typedRole}</span>
+                <span className="ml-1 inline-block h-5 w-px animate-pulse bg-brand align-middle sm:h-6" />
               </p>
               <p className="max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
                 {heroIntro.tagline}
@@ -115,13 +116,14 @@ export function HeroSection() {
               <p className="mt-3 text-sm leading-7 text-slate-200 md:text-base">{heroIntro.headline}</p>
             </div>
 
-            <div className="hero-reveal hero-depth-b mt-10 flex flex-wrap gap-4">
+            <div className="hero-reveal hero-depth-b mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
               {heroLinks.map((link) => (
                 <Button
                   key={link.label}
                   href={link.href}
                   variant={link.variant ?? "secondary"}
                   icon={link.icon}
+                  className="w-full sm:w-auto"
                 >
                   {link.label}
                 </Button>
@@ -133,18 +135,18 @@ export function HeroSection() {
               target="_blank"
               rel="noreferrer"
               data-interactive="true"
-              className="hero-reveal hero-depth-a group mt-6 block max-w-xl overflow-hidden rounded-[26px] border border-[#ff7a18]/30 bg-[linear-gradient(135deg,rgba(255,122,24,0.22),rgba(255,255,255,0.06))] p-5 shadow-[0_20px_80px_rgba(255,122,24,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ffb173]/60"
+              className="hero-reveal hero-depth-a group mt-6 block max-w-xl overflow-hidden rounded-[24px] border border-[#ff7a18]/30 bg-[linear-gradient(135deg,rgba(255,122,24,0.22),rgba(255,255,255,0.06))] p-4 shadow-[0_20px_80px_rgba(255,122,24,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ffb173]/60 sm:rounded-[26px] sm:p-5"
             >
               <div className="flex items-start justify-between gap-4">
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3 sm:gap-4">
                   <div className="rounded-2xl border border-white/15 bg-white/10 p-3 text-[#ffb173]">
                     <Youtube className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.28em] text-[#ffd6b8]">
+                    <p className="text-[11px] uppercase tracking-[0.18em] text-[#ffd6b8] sm:text-xs sm:tracking-[0.28em]">
                       {heroSpotlight.label}
                     </p>
-                    <h3 className="mt-2 text-xl font-semibold text-white">{heroSpotlight.title}</h3>
+                    <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">{heroSpotlight.title}</h3>
                     <p className="mt-2 max-w-md text-sm leading-7 text-slate-200">
                       {heroSpotlight.copy}
                     </p>
@@ -193,7 +195,7 @@ export function HeroSection() {
 
       <a
         href="#about"
-        className="scroll-pill absolute bottom-8 left-[64%] z-10 flex -translate-x-1/2 items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white lg:left-[72%]"
+        className="scroll-pill relative z-10 mx-auto mt-8 flex w-fit items-center gap-2 text-xs text-slate-400 transition-colors hover:text-white sm:mt-10 sm:text-sm lg:absolute lg:bottom-8 lg:left-[72%] lg:mt-0 lg:-translate-x-1/2"
         data-interactive="true"
       >
         Scroll to explore <ArrowDown className="h-4 w-4 animate-bounce" />

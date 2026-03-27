@@ -59,10 +59,10 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="relative z-10">
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.24em] text-brandSoft">Get In Touch</p>
-          <h3 className="mt-4 max-w-sm text-2xl font-semibold text-white">
+          <p className="text-xs uppercase tracking-[0.18em] text-brandSoft sm:tracking-[0.24em]">Get In Touch</p>
+          <h3 className="mt-4 max-w-sm text-xl font-semibold text-white sm:text-2xl">
             Send a direct message from the portfolio.
           </h3>
           <p className="mt-3 max-w-md text-sm leading-7 text-slate-300">

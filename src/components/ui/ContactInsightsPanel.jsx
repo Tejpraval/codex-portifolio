@@ -17,14 +17,14 @@ export function ContactInsightsPanel() {
       <div className="relative z-10 flex flex-col gap-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div className="max-w-md">
-            <p className="text-xs uppercase tracking-[0.24em] text-brandSoft">Quick Snapshot</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-brandSoft sm:tracking-[0.24em]">Quick Snapshot</p>
             <h3 className="mt-3 text-xl font-semibold text-white">Built for fast contact and clear next steps.</h3>
             <p className="mt-3 text-sm leading-7 text-slate-300">
               A compact overview for recruiters, founders, and collaborators before they send a message.
             </p>
           </div>
 
-          <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs uppercase tracking-[0.2em] text-slate-300">
+          <div className="inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] uppercase tracking-[0.14em] text-slate-300 sm:text-xs sm:tracking-[0.2em]">
             <AudioWaveform className="h-4 w-4 text-brandSoft" />
             Contact signal
           </div>
@@ -52,10 +52,10 @@ export function ContactInsightsPanel() {
         <div className="rounded-[24px] border border-white/10 bg-black/20 px-4 py-4 backdrop-blur-xl">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.22em] text-slate-400">Conversation readiness</p>
+              <p className="text-[11px] uppercase tracking-[0.16em] text-slate-400 sm:tracking-[0.22em]">Conversation readiness</p>
               <p className="mt-2 text-sm text-slate-300">Open to internships, project work, and technical collaboration.</p>
             </div>
-            <p className="text-2xl font-semibold text-white">88%</p>
+            <p className="shrink-0 text-2xl font-semibold text-white">88%</p>
           </div>
 
           <div className="mt-5 flex h-20 items-end gap-2">

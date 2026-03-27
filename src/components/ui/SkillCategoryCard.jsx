@@ -115,7 +115,7 @@ export function SkillCategoryCard({ group, index }) {
         <div ref={glareRef} className="pointer-events-none absolute inset-0 opacity-20" />
         <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-        <div className="relative flex items-start justify-between gap-4">
+        <div className="relative flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-white/[0.05] p-3 text-brand">
               <Icon className="h-5 w-5" />
@@ -124,8 +124,8 @@ export function SkillCategoryCard({ group, index }) {
               {group.title}
             </h3>
           </div>
-          <div className="skills-card-count-wrap text-right">
-            <div ref={countRef} className="skills-card-count text-sm uppercase tracking-[0.24em] text-slate-500">
+          <div className="skills-card-count-wrap text-left sm:text-right">
+            <div ref={countRef} className="skills-card-count text-xs uppercase tracking-[0.18em] text-slate-500 sm:text-sm sm:tracking-[0.24em]">
               0 items
             </div>
             <div className="mt-2 h-px w-20 bg-gradient-to-r from-brand/60 to-transparent" />

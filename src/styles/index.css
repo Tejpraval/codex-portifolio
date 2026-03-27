@@ -74,7 +74,7 @@ textarea {
 }
 
 .section-shell {
-  @apply relative mx-auto w-full max-w-7xl px-5 md:px-8;
+  @apply relative mx-auto w-full max-w-7xl px-4 sm:px-5 md:px-8;
 }
 
 .glass-panel {
@@ -82,17 +82,19 @@ textarea {
 }
 
 .section-title {
-  @apply font-display text-3xl font-semibold tracking-tight text-white md:text-5xl;
+  @apply font-display text-[2rem] font-semibold tracking-tight text-white sm:text-4xl md:text-5xl;
   text-shadow: 0 0 26px rgba(255, 122, 24, 0.14);
+  overflow-wrap: anywhere;
 }
 
 .section-copy {
-  @apply max-w-2xl text-base leading-8 text-slate-300;
+  @apply max-w-2xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8;
   max-width: 42rem;
 }
 
 .chip {
-  @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-slate-200;
+  @apply inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-slate-200 sm:text-xs sm:tracking-[0.2em];
+  white-space: normal;
 }
 
 .glow-ring {
@@ -671,5 +673,15 @@ textarea {
 
   .about-photo-shell {
     animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-divider {
+    width: 100%;
+  }
+
+  .glass-panel {
+    backdrop-filter: blur(18px);
   }
 }

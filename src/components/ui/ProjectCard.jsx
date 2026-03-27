@@ -20,16 +20,16 @@ export function ProjectCard({ project, index }) {
         <div ref={glareRef} className="pointer-events-none absolute inset-0 opacity-30" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,122,24,0.22),transparent_32%)] opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
         <div className="relative flex h-full flex-col [transform:translateZ(24px)]">
-          <div className="mb-8 flex items-start justify-between gap-4">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.26em] text-slate-500">{project.category}</p>
-              <p className="text-xs uppercase tracking-[0.3em] text-brandSoft/80">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-slate-500 sm:tracking-[0.26em]">{project.category}</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-brandSoft/80 sm:tracking-[0.3em]">
                 {String(index + 1).padStart(2, "0")}
               </p>
               <h3 className="mt-3 text-2xl font-semibold text-white">{project.title}</h3>
               <p className="mt-2 text-sm text-brandSoft">{project.subtitle}</p>
             </div>
-            <div className="rounded-full border border-white/10 bg-black/20 p-3 text-brand">
+            <div className="self-start rounded-full border border-white/10 bg-black/20 p-3 text-brand">
               <ArrowUpRight className="h-5 w-5" />
             </div>
           </div>
@@ -56,7 +56,7 @@ export function ProjectCard({ project, index }) {
               </span>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button href={project.github} icon={Github}>
               GitHub
             </Button>

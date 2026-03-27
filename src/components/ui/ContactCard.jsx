@@ -86,7 +86,7 @@ export function ContactCard({ item }) {
         onClick={copyValue}
         whileHover={{ y: -8 }}
         whileTap={{ scale: 0.985 }}
-        className="glass-panel group relative flex min-h-[112px] items-center justify-between overflow-hidden rounded-[26px] p-5 text-left transition-all duration-300 hover:border-brand/40 hover:shadow-glow"
+        className="glass-panel group relative flex min-h-[112px] flex-col items-start gap-4 overflow-hidden rounded-[26px] p-5 text-left transition-all duration-300 hover:border-brand/40 hover:shadow-glow sm:flex-row sm:items-center sm:justify-between sm:gap-5"
       >
         <div
           ref={glowRef}
@@ -104,7 +104,7 @@ export function ContactCard({ item }) {
             <p className="mt-1 text-sm text-white">{item.value}</p>
           </div>
         </div>
-        <div className="relative z-10 flex items-center gap-3">
+        <div className="relative z-10 flex items-center gap-3 self-end sm:self-auto">
           <span
             ref={iconRef}
             className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${
@@ -127,7 +127,7 @@ export function ContactCard({ item }) {
       target="_blank"
       rel="noreferrer"
       whileHover={{ y: -8 }}
-      className="glass-panel group flex min-h-[112px] items-center justify-between rounded-[26px] p-5 transition-all duration-300 hover:border-brand/40 hover:shadow-glow"
+      className="glass-panel group flex min-h-[112px] flex-col items-start gap-4 rounded-[26px] p-5 transition-all duration-300 hover:border-brand/40 hover:shadow-glow sm:flex-row sm:items-center sm:justify-between sm:gap-5"
     >
       <div className="flex items-center gap-4">
         <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-3 text-brand">
@@ -138,7 +138,7 @@ export function ContactCard({ item }) {
           <p className="mt-1 text-sm text-white">{item.value}</p>
         </div>
       </div>
-      <ArrowUpRight className="h-5 w-5 text-slate-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand" />
+      <ArrowUpRight className="h-5 w-5 self-end text-slate-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand sm:self-auto" />
     </motion.a>
   );
 }

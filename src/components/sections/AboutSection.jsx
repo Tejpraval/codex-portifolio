@@ -144,7 +144,7 @@ export function AboutSection() {
         </div>
 
         <div className="about-photo-reveal relative lg:pt-16">
-          <div className="about-photo-ring pointer-events-none absolute inset-0 m-auto h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.2),transparent_62%)] blur-[70px]" />
+          <div className="about-photo-ring pointer-events-none absolute inset-0 m-auto h-[18rem] w-[18rem] rounded-full bg-[radial-gradient(circle,rgba(255,122,24,0.2),transparent_62%)] blur-[70px] sm:h-[24rem] sm:w-[24rem]" />
           <div className="about-photo-shell relative mx-auto max-w-md perspective-[1200px]">
             <article
               ref={ref}
@@ -161,14 +161,14 @@ export function AboutSection() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="relative mt-4 flex items-center justify-between gap-4 rounded-[24px] border border-white/10 bg-white/[0.04] px-5 py-4">
+              <div className="relative mt-4 flex flex-col items-start gap-3 rounded-[24px] border border-white/10 bg-white/[0.04] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                 <div className="min-w-0">
-                  <p className="text-[1.7rem] font-semibold leading-none text-white">Tej Praval</p>
-                  <p className="mt-2 max-w-[18rem] text-xs uppercase tracking-[0.24em] text-slate-400">
+                  <p className="text-[1.45rem] font-semibold leading-none text-white sm:text-[1.7rem]">Tej Praval</p>
+                  <p className="mt-2 max-w-[18rem] text-[11px] uppercase tracking-[0.16em] text-slate-400 sm:text-xs sm:tracking-[0.24em]">
                     Full Stack Developer | Backend Focus
                   </p>
                 </div>
-                <div className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-slate-300">
+                <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[11px] uppercase tracking-[0.16em] text-slate-300 sm:shrink-0 sm:tracking-[0.22em]">
                   About Me
                 </div>
               </div>

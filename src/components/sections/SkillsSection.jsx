@@ -112,7 +112,7 @@ export function SkillsSection() {
 
   return (
     <section id="skills" ref={sectionRef} className="section-shell py-24 md:py-32">
-      <div ref={shellRef} className="skills-section-shell relative overflow-hidden rounded-[40px] px-1 py-2">
+      <div ref={shellRef} className="skills-section-shell relative overflow-hidden rounded-[28px] px-1 py-2 sm:rounded-[40px]">
         <div className="skills-mouse-glow pointer-events-none absolute top-0 left-0" ref={glowRef} />
         <div className="skills-backdrop-layer skills-backdrop-layer-a" />
         <div className="skills-backdrop-layer skills-backdrop-layer-b" />
@@ -127,7 +127,7 @@ export function SkillsSection() {
           <div className="skills-title-underline mt-[-1rem] mb-10 h-px w-full max-w-sm bg-gradient-to-r from-brand via-[#ffd4b5] to-transparent" />
         </div>
 
-        <div className="mb-10 flex justify-end">
+        <div className="mb-8 flex justify-end sm:mb-10">
           <div className="skill-constellation glass-panel relative hidden h-28 w-48 overflow-hidden rounded-[24px] md:block">
             <div className="skill-constellation-dot left-[14%] top-[42%]" />
             <div className="skill-constellation-dot left-[32%] top-[24%]" />
@@ -149,26 +149,26 @@ export function SkillsSection() {
           ))}
         </div>
 
-        <div className="skills-heading-reveal relative z-10 mt-12 overflow-hidden rounded-[30px] border border-white/10 bg-black/20 p-6 md:p-8">
+        <div className="skills-heading-reveal relative z-10 mt-10 overflow-hidden rounded-[26px] border border-white/10 bg-black/20 p-5 md:mt-12 md:rounded-[30px] md:p-8">
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.24em] text-brandSoft">Tools & Platforms</p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">Structured table for quick recruiter scanning.</h3>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-brandSoft sm:tracking-[0.24em]">Tools & Platforms</p>
+              <h3 className="mt-3 text-xl font-semibold text-white sm:text-2xl">Structured table for quick recruiter scanning.</h3>
             </div>
           </div>
           <div className="overflow-x-auto">
-            <table className="min-w-full text-left text-sm text-slate-300">
+            <table className="min-w-full text-left text-xs text-slate-300 sm:text-sm">
               <thead>
-                <tr className="border-b border-white/10 text-[11px] uppercase tracking-[0.24em] text-slate-500">
-                  <th className="px-4 py-3">Category</th>
-                  <th className="px-4 py-3">Tools / Platforms</th>
+                <tr className="border-b border-white/10 text-[10px] uppercase tracking-[0.18em] text-slate-500 sm:text-[11px] sm:tracking-[0.24em]">
+                  <th className="px-3 py-3 sm:px-4">Category</th>
+                  <th className="px-3 py-3 sm:px-4">Tools / Platforms</th>
                 </tr>
               </thead>
               <tbody>
                 {toolsPlatforms.map((row) => (
                   <tr key={row.category} className="border-b border-white/5 align-top last:border-b-0">
-                    <td className="px-4 py-4 font-medium text-white">{row.category}</td>
-                    <td className="px-4 py-4 leading-7 text-slate-300">{row.tools.join(", ")}</td>
+                    <td className="px-3 py-4 font-medium text-white sm:px-4">{row.category}</td>
+                    <td className="px-3 py-4 leading-6 text-slate-300 sm:px-4 sm:leading-7">{row.tools.join(", ")}</td>
                   </tr>
                 ))}
               </tbody>

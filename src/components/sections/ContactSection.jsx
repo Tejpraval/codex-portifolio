@@ -73,7 +73,7 @@ export function ContactSection() {
           <ContactInsightsPanel />
         </div>
 
-        <div ref={panelRef} className="glass-panel relative overflow-hidden rounded-[30px] p-6">
+        <div ref={panelRef} className="glass-panel relative overflow-hidden rounded-[26px] p-5 sm:rounded-[30px] sm:p-6">
           <ContactSignalScene panelMouseRef={panelMouseRef} />
           <div
             ref={glowRef}

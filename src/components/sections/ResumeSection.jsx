@@ -151,12 +151,12 @@ export function ResumeSection() {
               <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
               <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-                <div className="flex items-start gap-5">
+                <div className="flex items-start gap-4 sm:gap-5">
                   <div className="resume-icon-wrap rounded-[24px] border border-white/10 bg-white/[0.06] p-4 text-brand">
                     <FileText className="h-9 w-9" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold text-white md:text-3xl">
+                    <h3 className="text-xl font-semibold text-white sm:text-2xl md:text-3xl">
                       Tej Praval Resume
                     </h3>
                     <p className="mt-2 text-sm leading-7 text-slate-300">

@@ -28,9 +28,9 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-4 z-50 px-4 md:px-6">
-      <nav className="section-shell glass-panel flex items-center justify-between rounded-full px-4 py-3 md:px-6">
-        <a href="#hero" className="font-display text-sm tracking-[0.3em] text-white">
+    <header className="sticky top-3 z-50 px-3 sm:top-4 sm:px-4 md:px-6">
+      <nav className="section-shell glass-panel flex items-center justify-between gap-3 rounded-[24px] px-4 py-3 sm:rounded-full md:px-6">
+        <a href="#hero" className="font-display text-xs tracking-[0.22em] text-white sm:text-sm sm:tracking-[0.3em]">
           TEJ PRAVAL
         </a>
 
@@ -66,7 +66,7 @@ export function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`text-sm ${active === item.href ? "text-white" : "text-slate-300"}`}
+                  className={`rounded-2xl px-3 py-2 text-sm ${active === item.href ? "bg-white/[0.06] text-white" : "text-slate-300"}`}
                   onClick={() => setOpen(false)}
                   data-interactive="true"
                 >

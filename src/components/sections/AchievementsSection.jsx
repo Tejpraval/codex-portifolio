@@ -42,7 +42,7 @@ export function AchievementsSection() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,122,24,0.15),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.1),transparent_24%)]" />
         <div className="relative z-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
-            <p className="text-xs uppercase tracking-[0.24em] text-brandSoft">Soft Skills & Activities</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-brandSoft sm:tracking-[0.24em]">Soft Skills & Activities</p>
             <h3 className="mt-4 max-w-2xl text-2xl font-semibold text-white md:text-3xl">
               Relevant interpersonal strengths backed by visible technical activity.
             </h3>
@@ -67,18 +67,18 @@ export function AchievementsSection() {
             className="achievements-reveal glass-panel group relative overflow-hidden rounded-[30px] p-6"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,122,24,0.12),transparent_28%)]" />
-            <div className="relative z-10 flex items-start justify-between gap-4">
+            <div className="relative z-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex items-start gap-4">
                 <div className="rounded-[22px] border border-white/10 bg-white/[0.06] p-3 text-brand">
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-brandSoft">Technical Activity</p>
-                  <h3 className="mt-1.5 text-[1.65rem] font-semibold text-white">{item.title}</h3>
+                  <h3 className="mt-1.5 text-[1.4rem] font-semibold leading-tight text-white sm:text-[1.65rem]">{item.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-slate-300">{item.description}</p>
                 </div>
               </div>
-              <div className="rounded-full border border-white/10 bg-white/[0.04] p-2 text-slate-300 transition-colors duration-300 group-hover:border-brand/40 group-hover:text-brand">
+              <div className="self-end rounded-full border border-white/10 bg-white/[0.04] p-2 text-slate-300 transition-colors duration-300 group-hover:border-brand/40 group-hover:text-brand sm:self-auto">
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </div>
             </div>

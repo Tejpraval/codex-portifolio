@@ -14,7 +14,7 @@ export function Button({
   type = "button",
 }) {
   const baseClass =
-    "magnetic-button group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-sm font-medium transition-all duration-300";
+    "magnetic-button group relative inline-flex min-h-[48px] items-center justify-center gap-2 overflow-hidden rounded-full px-5 py-3 text-sm font-medium transition-all duration-300";
   const variants = {
     primary:
       "bg-brand text-white shadow-glow hover:-translate-y-0.5 hover:bg-brandSoft",
